@@ -379,6 +379,7 @@ class ProductAnalyzer:
         """Process entire dataset"""
         # Read input file
         df = pd.read_csv(input_file)
+        df=df[0:100]
         df.rename(columns={'entity_value': 'true_entity_value'}, inplace=True)
 
         # Create copy for OCR output
@@ -420,5 +421,5 @@ class ProductAnalyzer:
         print(f"Final Progress: {len(df)}/{len(df)}")
         print(f"Final Correct: {count_correct}, Final Wrong: {count_wrong}")
 
-# product_analyzer = ProductAnalyzer()
-# product_analyzer.process_dataset('./dataset/input/train.csv')
+product_analyzer = ProductAnalyzer()
+product_analyzer.process_dataset('./dataset/input/train.csv')
